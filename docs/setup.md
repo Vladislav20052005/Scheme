@@ -63,7 +63,7 @@ OSX тоже должен работать.
    `ADDRESS` нужно скопировать со страницы репозитория (My Repository в интерфейсе https://cpp-hse.net/). Синяя кнопка Clone -> Clone with SSH.
    Адрес будет вида
    ```
-   git@cpp-hse.gitlab.net:advanced-2023/group-Ivan-Ivanov-SuperVanechka1337.git
+   git@cpp-hse.gitlab.net:hse-advanced-cpp/2024/group-Ivan-Ivanov-SuperVanechka1337.git
    ```
    У вас есть много вариантов, в чем писать код. Мы рекомендуем использовать CLion/Vim/VSCode/Sublime.
    Для Vim, VSCode и многих прочих редакторов наилучшим решением при работе с C++ является [clangd](https://clangd.llvm.org/).
