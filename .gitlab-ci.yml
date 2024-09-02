@@ -18,11 +18,11 @@ stages:
     - cmake ../../ -G Ninja -DTEST_SOLUTION=ON -DCMAKE_BUILD_TYPE=$BUILD_TYPE
     - ninja test-all
 
-check-solutions-gcc-12-debug:
+check-solutions-gcc-13-debug:
   extends: .check
   variables:
-    CC: gcc-12
-    CXX: g++-12
+    CC: gcc-13
+    CXX: g++-13
     BUILD_TYPE: Debug
 
 check-solutions-clang-18-debug:
