@@ -19,7 +19,7 @@ fi
 if [ "$#" -ge 2 ]; then
     TASK_PATH=../../tasks/$1
     CLANG_PATH=../../run-clang-format.py
-    CLANG_TIDY="hse-clang-tidy --extra-arg=-I/usr/lib/clang/11/include/"
+    CLANG_TIDY="hse-clang-tidy --extra-arg=-I/usr/lib/clang/18/include/"
 fi
 
 
