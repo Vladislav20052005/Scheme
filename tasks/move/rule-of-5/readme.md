@@ -5,5 +5,5 @@
 Исходный код находится в файле `main.cpp`.
 Исполняемый файл запускается на Ubuntu 24.04 и получен командой
 ```shell
-clang++-14 main.cpp -o /tmp/a.out -std=c++11
+clang++-18 main.cpp -o /tmp/a.out -std=c++11
 ```

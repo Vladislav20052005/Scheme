@@ -25,25 +25,25 @@ check-solutions-gcc-12-debug:
     CXX: g++-12
     BUILD_TYPE: Debug
 
-check-solutions-clang-14-debug:
+check-solutions-clang-18-debug:
   extends: .check
   variables:
-    CC: clang-14
-    CXX: clang++-14
+    CC: clang-18
+    CXX: clang++-18
     BUILD_TYPE: Debug
 
-check-solutions-clang-14-asan:
+check-solutions-clang-18-asan:
   extends: .check
   variables:
-    CC: clang-14
-    CXX: clang++-14
+    CC: clang-18
+    CXX: clang++-18
     BUILD_TYPE: ASAN
 
-check-solutions-clang-14-tsan:
+check-solutions-clang-18-tsan:
   extends: .check
   variables:
-    CC: clang-14
-    CXX: clang++-14
+    CC: clang-18
+    CXX: clang++-18
     BUILD_TYPE: TSAN
 
 deploy:
