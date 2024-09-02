@@ -16,12 +16,35 @@ find_package(FFTW)
 # set(FFTW_INCLUDES     /usr/local/opt/fftw/include)
 # set(FFTW_LIBRARIES    /usr/local/opt/fftw/lib/libfftw3.dylib)
 
-message(STATUS "Path to PNG includes: ${PNG_INCLUDE_DIRS}")
-message(STATUS "Path to PNG library: ${PNG_LIBRARY}")
-message(STATUS "Path to JPEG includes: ${JPEG_INCLUDE_DIRS}")
-message(STATUS "Path to JPEG library: ${JPEG_LIBRARIES}")
-message(STATUS "Path to FFTW includes: ${FFTW_INCLUDES}")
-message(STATUS "Path to FFTW library: ${FFTW_LIBRARIES}")
+set(JPEG_DECODER_DEPS_PRESENT TRUE)
+
+if (${PNG_FOUND})
+    message(STATUS "Path to PNG includes: ${PNG_INCLUDE_DIRS}")
+    message(STATUS "Path to PNG library: ${PNG_LIBRARY}")
+else (${PNG_FOUND})
+    message(WARNING "PNG library was not found. Jpeg-Decoder task will not be configured")
+    set(JPEG_DECODER_DEPS_PRESENT FALSE)
+endif()
+
+if (${JPEG_FOUND})
+    message(STATUS "Path to JPEG includes: ${JPEG_INCLUDE_DIRS}")
+    message(STATUS "Path to JPEG library: ${JPEG_LIBRARIES}")
+else (${JPEG_FOUND})
+    message(WARNING "JPEG library was not found. Jpeg-Decoder task will not be configured")
+    set(JPEG_DECODER_DEPS_PRESENT FALSE)
+endif()
+
+if (${FFTW_FOUND})
+    message(STATUS "Path to FFTW includes: ${FFTW_INCLUDES}")
+    message(STATUS "Path to FFTW library: ${FFTW_LIBRARIES}")
+else (${FFTW_FOUND})
+    message(WARNING "FFTW library was not found. Jpeg-Decoder task will not be configured")
+    set(JPEG_DECODER_DEPS_PRESENT FALSE)
+endif()
+
+if (NOT ${JPEG_DECODER_DEPS_PRESENT})
+    return()
+endif()
 
 add_catch(test_decoder_huffman 
     huffman/tests/test_huffman.cpp
