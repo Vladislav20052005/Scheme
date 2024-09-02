@@ -11,7 +11,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y \
     ccache \
     ninja-build \
     clang-tools-18 \
-    g++-12
+    g++-13
 
 RUN apt-get update
 RUN apt-get install -y jq
@@ -21,7 +21,8 @@ RUN apt-get install -y \
     python3-pip \
     git
 
-RUN pip3 install PyYAML \
+RUN pip3 install --break-system-packages \
+                 PyYAML \
                  pytz \
                  docopt \
                  requests \
