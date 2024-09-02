@@ -38,7 +38,7 @@ OSX тоже должен работать.
 
 1. Склонируйте репозиторий с задачами.
    ```
-   git clone https://gitlab.com/danlark/cpp-advanced-hse
+   git clone https://gitlab.com/hse-cpp/cpp-advanced-hse
    ```
 
    Команда `git clone` создаст директорию `cpp-advanced-hse` и запишет туда все файлы из этого репозитория.

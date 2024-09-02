@@ -21,8 +21,8 @@
 Выполните `git remote -v`. Вывод должен выглядеть так:
 
 ```
-origin  https://gitlab.com/danlark/cpp-advanced-hse (fetch)
-origin  https://gitlab.com/danlark/cpp-advanced-hse (push)
+origin  https://gitlab.com/hse-cpp/cpp-advanced-hse (fetch)
+origin  https://gitlab.com/hse-cpp/cpp-advanced-hse (push)
 student ssh://git@gitlab.cpp-hse.net:2224/advanced-2023/hse-Name-Surname-Login.git (fetch)
 student ssh://git@gitlab.cpp-hse.net:2224/advanced-2023/hse-Name-Surname-Logingit (push)
 ```

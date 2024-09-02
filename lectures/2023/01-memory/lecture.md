@@ -62,7 +62,7 @@ paginate: true
 * https://t.me/cpp_advanced_hse_2023
 * Канал — главный источник правды
 * Чат для обсуждения, в него можно кидать ссылки на решения
-* Репозиторий https://gitlab.com/danlark/cpp-advanced-hse
+* Репозиторий https://gitlab.com/hse-cpp/cpp-advanced-hse
 * https://cpp-hse.net/ сайт с дедлайнами и вашими задачами
 * После лекции мы выдадим код регистрации
 

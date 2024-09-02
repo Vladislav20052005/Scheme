@@ -1,6 +1,6 @@
 # Bad Hash
 
-Это задача типа [crashme](https://gitlab.com/danlark/cpp-advanced-hse/-/blob/main/docs/crashme.md).
+Это задача типа [crashme](https://gitlab.com/hse-cpp/cpp-advanced-hse/-/blob/main/docs/crashme.md).
 
 Исходный код находится в файле `main.cpp`.
 Исполняемый файл запускается на Ubuntu 24.04 и получен командой
@@ -15,7 +15,7 @@ clang++-18 main.cpp -o bad_hash -O2 -std=c++20
 ./bad_hash <input.txt
 ```
 
-Послать ввод из файла на сервер можно [командой](https://gitlab.com/danlark/cpp-advanced-hse/-/blob/main/docs/crashme.md#подготовленный-ввод):
+Послать ввод из файла на сервер можно [командой](https://gitlab.com/hse-cpp/cpp-advanced-hse/-/blob/main/docs/crashme.md#подготовленный-ввод):
 ```shell
 (echo bad-hash; cat input.txt) | nc crashme.cpp-hse.net 9090
 ```

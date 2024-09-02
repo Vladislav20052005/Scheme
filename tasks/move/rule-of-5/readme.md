@@ -1,6 +1,6 @@
 # rule-of-5
 
-Это задача типа [crashme](https://gitlab.com/danlark/cpp-advanced-hse/-/blob/main/docs/crashme.md).
+Это задача типа [crashme](https://gitlab.com/hse-cpp/cpp-advanced-hse/-/blob/main/docs/crashme.md).
 
 Исходный код находится в файле `main.cpp`.
 Исполняемый файл запускается на Ubuntu 24.04 и получен командой

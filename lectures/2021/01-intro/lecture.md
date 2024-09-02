@@ -39,7 +39,7 @@ paginate: true
 * https://t.me/cpp_advanced_hse_2021
 * Чат прилинкован к каналу, закреп &mdash; источник правды в любой момент
 * В чат можно кидать ссылки на свои решения, никто их не увидит кроме нас и вас
-* Репозиторий https://gitlab.com/danlark/cpp-advanced-hse
+* Репозиторий https://gitlab.com/hse-cpp/cpp-advanced-hse
 * Инструкция в SETUP\.md этого репозитория
 * https://cpp-hse.org/ сайт с дедлайнами и вашими задачами
 * После лекции мы выдадим код регистрации

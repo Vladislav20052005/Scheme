@@ -14,4 +14,4 @@
 ### Примечания
 
 * Обратите внимание, что это учебная задача, на практике первые 2 функтора использовать не стоит.
-* Рекомендуется сначала сдать задачу [Fold](https://gitlab/danlark/cpp-advanced-hse/tree/main/tasks/types/fold).
+* Рекомендуется сначала сдать задачу [Fold](https://gitlab/hse-cpp/cpp-advanced-hse/tree/main/tasks/types/fold).

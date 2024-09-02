@@ -26,9 +26,9 @@ perf 1  15.58s user 0.00s system 99% cpu 15.587 total
 Very simple try-catch block to [asm](https://godbolt.org/z/4f93nMcaP)
 
 6. **Throw by value, catch by reference** [catch_reference_of_value.cpp](catch_reference_of_value.cpp), [some text](http://ptgmedia.pearsoncmg.com/images/0321113586/items/sutter_item73.pdf)
-7. [Проблемы исключений](https://gitlab.com/danlark/cpp-advanced-hse/-/blob/main/lectures/2022/05-errors/lecture.md#проблемы-исключений)
-8. [Другие способы работы с ошибками](https://gitlab.com/danlark/cpp-advanced-hse/-/blob/main/lectures/2022/05-errors/lecture.md#типы-суммы)
-9. [Ошибки в других ЯП](https://gitlab.com/danlark/cpp-advanced-hse/-/blob/main/lectures/2022/05-errors/lecture.md#c-experience)
+7. [Проблемы исключений](https://gitlab.com/hse-cpp/cpp-advanced-hse/-/blob/main/lectures/2022/05-errors/lecture.md#проблемы-исключений)
+8. [Другие способы работы с ошибками](https://gitlab.com/hse-cpp/cpp-advanced-hse/-/blob/main/lectures/2022/05-errors/lecture.md#типы-суммы)
+9. [Ошибки в других ЯП](https://gitlab.com/hse-cpp/cpp-advanced-hse/-/blob/main/lectures/2022/05-errors/lecture.md#c-experience)
 
 _optional_
 

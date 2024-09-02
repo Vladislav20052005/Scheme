@@ -154,5 +154,5 @@ if __name__ == "__main__":
 
         submit(args.task_path)
     except:
-        print("Something went wrong. Most frequent issues are described at https://gitlab.com/danlark/cpp-advanced-hse/-/blob/main/docs/troubleshooting.md")
+        print("Something went wrong. Most frequent issues are described at https://gitlab.com/hse-cpp/cpp-advanced-hse/-/blob/main/docs/troubleshooting.md")
         raise
