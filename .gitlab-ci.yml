@@ -9,6 +9,8 @@ stages:
   stage: test
   image: cr.yandex/crppmgcujiph4hvf0dup/hse-cxx-build:latest
   allow_failure: true
+  rules:
+    - if: $CI_COMMIT_TITLE !~ /.*SKIP_CHECK.*/
   script:
     - cmake --version
     - python3 --version
