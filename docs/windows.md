@@ -2,7 +2,7 @@
 
 Здесь описано, как настроить окружение на Windows с использованием WSL (Windows Subsystem from Linux) и VSC (Visual Studio Code) или Vim. Однако мы рекомендуем перейти на Linux.
 
-1. Установите WSL2 [по инструкции](https://docs.microsoft.com/ru-ru/windows/wsl/install-win10#manual-installation-steps). Дистрибутив лучше взять Ubuntu 22.04.
+1. Установите WSL2 [по инструкции](https://docs.microsoft.com/ru-ru/windows/wsl/install-win10#manual-installation-steps). Дистрибутив лучше взять Ubuntu 24.04.
 2. Запустите WSL2 и установите в ней необходимые инструменты (компилятор, отладчик, CMake):
 
 ```
