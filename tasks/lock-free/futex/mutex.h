@@ -5,16 +5,16 @@
 #include <mutex>
 
 // Atomically do the following:
-//    if (*(uint64_t*)value == expected_value) {
-//        sleep_on_address(value)
+//    if (*(uint64_t*)addr == expected_value) {
+//        sleep_on_address(addr)
 //    }
-void FutexWait(void *value, uint64_t expected_value);
+void FutexWait(void *addr, uint64_t expected_value);
 
-// Wakeup 1 thread sleeping on address of value
-void FutexWakeOne(void *value);
+// Wakeup 1 thread sleeping on the given addr
+void FutexWakeOne(void *addr);
 
-// Wakeup all threads sleeping on address of value
-void FutexWakeAll(void *value);
+// Wakeup all threads sleeping on the given addr
+void FutexWakeAll(void *addr);
 
 class Mutex {
 public:
