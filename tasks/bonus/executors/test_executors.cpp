@@ -384,7 +384,7 @@ TEST_P(ExecutorsTest, NoDeadlockWhenSubmittingFromTaskBody) {
     pool->WaitShutdown();
 }
 
-INSTANTIATE_TEST_CASE_P(ThreadPool, ExecutorsTest,
+INSTANTIATE_TEST_SUITE_P(ThreadPool, ExecutorsTest,
                         ::testing::Values([] { return MakeThreadPoolExecutor(1); },
                                           [] { return MakeThreadPoolExecutor(2); },
                                           [] { return MakeThreadPoolExecutor(10); }));

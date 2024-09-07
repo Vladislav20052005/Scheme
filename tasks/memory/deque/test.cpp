@@ -88,7 +88,7 @@ TEST_CASE("Copy correctness", "[vector]") {
     Check(a, std::vector<int>());
     Check(b, std::vector<int>{1});
 
-    b = b;
+    b = b;  // NOLINT
     Check(b, std::vector<int>{1});
     a = b;
     Check(a, std::vector<int>{1});

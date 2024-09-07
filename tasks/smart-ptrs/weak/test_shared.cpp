@@ -59,7 +59,7 @@ TEST_CASE("Copy/move") {
         SharedPtr c(std::move(b));
         REQUIRE(*d == "test");
         REQUIRE(*c == "test");
-        d = d;
+        d = d;  // NOLINT
         c = end;
         d.Reset(new std::string("delete"));
         end = d;
