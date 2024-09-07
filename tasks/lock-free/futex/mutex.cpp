@@ -1,6 +1,8 @@
 #include <mutex.h>
 #include <cstdint>
 
+/* libstdc++ implementation of futex syscalls */
+
 #if defined(__linux__)
 
 #include <unistd.h>
