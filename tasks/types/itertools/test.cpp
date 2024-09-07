@@ -62,7 +62,7 @@ TEST_CASE("Zip short") {
         ++it;
     }
     REQUIRE(it == s.end());
-    REQUIRE(i == s.size());
+    REQUIRE(i == std::ssize(s));
 }
 
 struct Int {
