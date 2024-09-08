@@ -1,6 +1,7 @@
 #pragma once
 
 #include <algorithm>
+#include <iterator>
 
 class ListHook {
 public:
@@ -26,8 +27,15 @@ private:
 template <typename T>
 class List {
 public:
-    class Iterator : public std::iterator<std::bidirectional_iterator_tag, T> {
+    class Iterator {
+        using IteratorTag = std::bidirectional_iterator_tag;
     public:
+        typedef T           value_type;
+        typedef ptrdiff_t   difference_type;
+        typedef T*          pointer;
+        typedef T&          reference;
+        typedef IteratorTag iterator_category;
+
         Iterator& operator++();
         Iterator operator++(int);
 
