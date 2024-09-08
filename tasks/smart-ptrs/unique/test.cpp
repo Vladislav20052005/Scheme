@@ -68,7 +68,7 @@ TEST_CASE("Basic") {
     SECTION("Self move") {
         UniquePtr<MyInt> s(new MyInt(42));
         MyInt* p = s.Get();
-        s = std::move(s);
+        s = std::move(s);  // NOLINT
 
         REQUIRE(MyInt::AliveCount() == 1);
         REQUIRE(s.Get() == p);

@@ -64,7 +64,7 @@ TEST_CASE("Copy") {
     REQUIRE("check" == d.GetValue<std::string>());
 
     Any e = Any(std::string("dorou"));
-    e = e;
+    e = e;  // NOLINT
 
     REQUIRE("dorou" == e.GetValue<std::string>());
 

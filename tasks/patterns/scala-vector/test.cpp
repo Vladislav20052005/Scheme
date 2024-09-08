@@ -39,17 +39,17 @@ TEST_CASE("Constructors", "[vector]") {
 }
 
 TEST_CASE("ChangeSize", "[vector]") {
-    const int iterations_count = 1000;
+    const size_t iterations_count = 1000;
     ImmutableVector<int> data;
     std::vector<ImmutableVector<int>> versions;
     versions.reserve(iterations_count);
-    for (int i = 0; i < iterations_count; ++i) {
+    for (size_t i = 0; i < iterations_count; ++i) {
         data = data.PushBack(i);
         versions.push_back(data);
         REQUIRE(versions.back().Size() == i + 1);
         REQUIRE(MakeRange(i + 1) == GetValues(versions.back()));
     }
-    for (int i = 0; i < iterations_count; ++i) {
+    for (size_t i = 0; i < iterations_count; ++i) {
         data = data.PopBack();
         REQUIRE(data.Size() == iterations_count - i - 1);
         REQUIRE(MakeRange(iterations_count - i - 1) == GetValues(data));
