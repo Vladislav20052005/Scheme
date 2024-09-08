@@ -10,10 +10,10 @@
 //    }
 void FutexWait(void *addr, uint64_t expected_value);
 
-// Wakeup 1 thread sleeping on the given addr
+// Wakeup 1 thread sleeping on the given address
 void FutexWakeOne(void *addr);
 
-// Wakeup all threads sleeping on the given addr
+// Wakeup all threads sleeping on the given address
 void FutexWakeAll(void *addr);
 
 class Mutex {
