@@ -60,8 +60,8 @@ assignments:
     score: 300
 
 - title:    02-move
-  start:    12-09-2023 17:40
-  deadline: 24-09-2023 23:59
+  start:    12-09-2024 17:40
+  deadline: 24-09-2024 23:59
   tasks:
   - task: move/harakiri
     score: 100
