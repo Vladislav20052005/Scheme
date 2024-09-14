@@ -20,7 +20,6 @@ if [ "$#" -ge 2 ]; then
     TASK_PATH=../../tasks/$1
     CLANG_PATH=../../run-clang-format.py
     CLANG_TIDY="hse-clang-tidy --extra-arg=-I/usr/lib/clang/18/include/"
-
 fi
 
 
@@ -36,9 +35,7 @@ jq -r '.allow_change | if type=="array" then .[] else . end' --raw-output $TASK_
 jq -r '.allow_change | if type=="array" then .[] else . end' --raw-output $TASK_PATH/.tester.json | sed "s|^|$TASK_PATH\/|g" | egrep '\.c$|\.cpp$|\.h$|\.hpp$' | xargs -t -I@ sh -c "ls @" | xargs -t $CLANG_TIDY
 
 # additional checks
-# TODO(sskvor): enable again after hse-clang-tidy fixes
 if [ "$#" -eq 3 ]; then
-    md5sum /usr/bin/hse-clang-tidy
     jq -r '.allow_change | if type=="array" then .[] else . end' --raw-output $TASK_PATH/.tester.json | sed "s|^|$TASK_PATH\/|g" | egrep '\.c$|\.cpp$|\.h$|\.hpp$' | xargs -t -I@ sh -c "ls @" | xargs -t $CLANG_TIDY --config="$3"
 fi
 
