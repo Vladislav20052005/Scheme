@@ -7,7 +7,7 @@ stages:
 
 .check:
   stage: test
-  image: cr.yandex/crp6rglpqeuthu35cvmh/hse-cxx-build:latest
+  image: cr.yandex/crppmgcujiph4hvf0dup/hse-cxx-build:latest
   allow_failure: true
   rules:
     - if: $CI_COMMIT_TITLE !~ /.*SKIP_CHECK.*/
@@ -55,7 +55,7 @@ deploy:
   - docker
   stage: release
   script:
-  - docker pull cr.yandex/crp6rglpqeuthu35cvmh/hse-cxx-build:latest
+  - docker pull cr.yandex/crppmgcujiph4hvf0dup/hse-cxx-build:latest
   - git checkout .
   - docker build -f infra/testenv.docker -t cr.yandex/crppmgcujiph4hvf0dup/hse-cxx-testenv .
   - docker push cr.yandex/crppmgcujiph4hvf0dup/hse-cxx-testenv:latest
