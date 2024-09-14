@@ -18,5 +18,30 @@
     "vector",
     "deque"
   ],
+  "forbidden_regexp": [
+    "std\\s*::\\s*unordered_multiset",
+    "std\\s*::\\s*unordered_multimap",
+    "std\\s*::\\s*queue",
+    "std\\s*::\\s*prioriry_queue",
+    "#include\\s*<queue>",
+    "std\\s*::\\s*stack",
+    "#include\\s*<stack>",
+    "std\\s*::\\s*map",
+    "std\\s*::\\s*multimap",
+    "#include\\s*<map>",
+    "std\\s*::\\s*set",
+    "std\\s*::\\s*multiset",
+    "#include\\s*<set>",
+    "std\\s*::\\s*list",
+    "#include\\s*<list>",
+    "std\\s*::\\s*unordered_set",
+    "#include\\s*<unordered_set>",
+    "std\\s*::\\s*unordered_map",
+    "#include\\s*<unordered_map>",
+    "std\\s*::\\s*vector",
+    "#include\\s*<vector>",
+    "std\\s*::\\s*deque",
+    "#include\\s*<deque>"
+  ],
   "disable_tsan": true
 }

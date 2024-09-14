@@ -4,5 +4,8 @@
     "solutions": "private",
     "forbidden_containers" : [
         "shared_ptr"
+    ],
+    "forbidden_regexp": [
+        "std\\s*::\\s*shared_ptr"
     ]
 }

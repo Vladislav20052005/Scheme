@@ -6,5 +6,10 @@
         "to_string",
         "starts_with",
         "ends_with"
+    ],
+    "forbidden_regexp": [
+        "std\\s*::\\s*to_string",
+        "starts_with",
+        "ends_with"
     ]
 }
