@@ -36,8 +36,8 @@ jq -r '.allow_change | if type=="array" then .[] else . end' --raw-output $TASK_
 
 # additional checks
 # TODO(sskvor): enable again after hse-clang-tidy fixes
-#if [ "$#" -eq 3 ]; then
-#    jq -r '.allow_change | if type=="array" then .[] else . end' --raw-output $TASK_PATH/.tester.json | sed "s|^|$TASK_PATH\/|g" | egrep '\.c$|\.cpp$|\.h$|\.hpp$' | xargs -t -I@ sh -c "ls @" | xargs -t $CLANG_TIDY --config="$3"
-#fi
+if [ "$#" -eq 3 ]; then
+    jq -r '.allow_change | if type=="array" then .[] else . end' --raw-output $TASK_PATH/.tester.json | sed "s|^|$TASK_PATH\/|g" | egrep '\.c$|\.cpp$|\.h$|\.hpp$' | xargs -t -I@ sh -c "ls @" | xargs -t $CLANG_TIDY --config="$3"
+fi
 
 $CLANG_TIDY $TASK_PATH/*.cpp
