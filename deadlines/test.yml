@@ -91,6 +91,22 @@ assignments:
   - task: types/itertools
     score: 100
 
+- title:    03-smart-ptrs
+  start:    23-09-2024 00:00
+  deadline: 13-10-2024 23:59
+  group:    large
+  tasks:
+    - task:  smart-ptrs/unique
+      score: 200
+    - task:  smart-ptrs/shared
+      score: 300
+    - task:  smart-ptrs/weak
+      score: 200
+    - task:  smart-ptrs/shared-from-this
+      score: 200
+    - task:  smart-ptrs/intrusive
+      score: 100
+
 - title:    bonus
   start:    03-09-2024 18:00
   deadline: 30-12-2024 23:59
