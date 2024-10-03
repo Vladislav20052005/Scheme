@@ -107,6 +107,19 @@ assignments:
     - task:  smart-ptrs/intrusive
       score: 100
 
+- title:    05-errors
+  start:    03-10-2023 00:00
+  deadline: 16-10-2023 23:59
+  tasks:
+  - task: errors/safe-transform
+    score: 100
+  - task: errors/defer
+    score: 100
+  - task: errors/tryhard
+    score: 100
+  - task: errors/grep
+    score: 100
+
 - title:    bonus
   start:    03-09-2024 18:00
   deadline: 30-12-2024 23:59
