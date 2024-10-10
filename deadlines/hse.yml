@@ -120,6 +120,21 @@ assignments:
   - task: errors/grep
     score: 100
 
+- title:    06-patterns
+  start:    10-10-2024 00:00
+  deadline: 23-10-2024 23:59
+  tasks:
+  - task: patterns/any
+    score: 100
+  - task: patterns/pimpl
+    score: 100
+  - task: patterns/editor
+    score: 100
+  - task: patterns/small-test-framework
+    score: 100
+  - task: patterns/scala-vector
+    score: 100
+
 - title:    bonus
   start:    03-09-2024 18:00
   deadline: 30-12-2024 23:59
