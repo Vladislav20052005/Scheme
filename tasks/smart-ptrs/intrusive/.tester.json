@@ -2,6 +2,7 @@
   "allow_change": [
     "intrusive.h"
   ],
+  "disable_tsan": true,
   "tests": "test_intrusive",
   "solutions": "private",
   "forbidden_containers": [

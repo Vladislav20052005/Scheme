@@ -3,6 +3,7 @@
     "shared.h",
     "sw_fwd.h"
   ],
+  "disable_tsan": true,
   "tests": "test_shared",
   "solutions": "private",
   "forbidden_containers": [

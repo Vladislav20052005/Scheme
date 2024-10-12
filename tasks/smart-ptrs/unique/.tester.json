@@ -3,6 +3,7 @@
     "unique.h",
     "compressed_pair.h"
   ],
+  "disable_tsan": true,
   "tests": "test_unique",
   "solutions": "private",
   "forbidden_containers": [

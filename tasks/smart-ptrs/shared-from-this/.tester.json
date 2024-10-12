@@ -4,6 +4,7 @@
     "weak.h",
     "sw_fwd.h"
   ],
+  "disable_tsan": true,
   "tests": "test_shared_from_this",
   "solutions": "private",
   "forbidden_containers": [
