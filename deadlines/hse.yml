@@ -135,6 +135,17 @@ assignments:
   - task: patterns/scala-vector
     score: 100
 
+- title:    07-meta
+  start:    16-10-2024 12:00
+  deadline: 30-10-2024 23:59
+  tasks:
+  - task: meta/compile-eval
+    score: 100
+  - task: meta/constexpr-map
+    score: 100
+  - task: meta/function-ref
+    score: 100
+
 - title:    bonus
   start:    03-09-2024 18:00
   deadline: 30-12-2024 23:59
@@ -146,3 +157,9 @@ assignments:
   - task: bonus/bad-rand
     score: 100
     crashme: true
+  - task: bonus/solve-or-die
+    score: 100
+  - task: bonus/matrix-2.0
+    score: 100
+  - task: bonus/clang-fun
+    score: 100
