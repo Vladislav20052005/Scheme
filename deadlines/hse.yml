@@ -146,6 +146,22 @@ assignments:
   - task: meta/function-ref
     score: 100
 
+- title:    08-scheme
+  start:    20-10-2024 22:00
+  deadline: 10-11-2024 23:59
+  group:    large
+  tasks:
+    - task:  scheme/tokenizer
+      score: 200
+    - task:  scheme/parser
+      score: 200
+    - task:  scheme/basic
+      score: 300
+    - task:  scheme/advanced
+      score: 200
+    - task:  scheme/tidy
+      score: 100
+
 - title:    bonus
   start:    03-09-2024 18:00
   deadline: 30-12-2024 23:59
