@@ -37,5 +37,5 @@ TEST_CASE("Fuzzing-2") {
     std::cerr << "Difference: " << diff << "\n\n";
 
     // If falling here, check that you invoke GC after each command
-    REQUIRE(alloc_count - dealloc_count <= 10'000);
+    REQUIRE(alloc_count - dealloc_count <= 100);
 }
