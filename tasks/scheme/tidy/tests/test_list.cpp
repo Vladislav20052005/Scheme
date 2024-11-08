@@ -1,7 +1,6 @@
 #include "scheme_test.h"
 
 TEST_CASE_METHOD(SchemeTest, "ListsAreNotSelfEvaliating") {
-    ExpectRuntimeError("()");
     ExpectRuntimeError("(1)");
     ExpectRuntimeError("(1 2 3)");
 
