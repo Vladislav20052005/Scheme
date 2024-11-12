@@ -26,7 +26,7 @@ scoring:
   - name: bonus
     weight: 1.0
     policy: hard
-    maxScore: 1300
+    maxScore: 1000
 
   defaultGroup: weekly
   finalDeadline: 30-12-2024 23:59
@@ -175,6 +175,21 @@ assignments:
     - task: baby-threads/subset-sum
       score: 100
 
+- title:    10-condition-variables
+  start:    12-11-2024 00:00
+  deadline: 25-11-2024 23:59
+  tasks:
+    - task: condvars/timerqueue
+      score: 100
+    - task: condvars/semaphore
+      score: 100
+    - task: condvars/rw-lock
+      score: 100
+    - task: condvars/buffered-channel
+      score: 100
+    - task: condvars/unbuffered-channel
+      score: 100
+
 - title:    bonus
   start:    03-09-2024 18:00
   deadline: 30-12-2024 23:59
@@ -196,3 +211,5 @@ assignments:
     score: 200
   - task: bonus/hack-cpp-1.0
     score: 100
+  - task: bonus/executors
+    score: 500
