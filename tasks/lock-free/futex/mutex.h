@@ -1,25 +1,20 @@
 #pragma once
 
-#include <linux/futex.h>
-#include <sys/syscall.h>
-#include <sys/time.h>
-#include <unistd.h>
-
-#include <mutex>
 #include <atomic>
+#include <cstdint>
+#include <mutex>
 
 // Atomically do the following:
-//    if (*value == expected_value) {
-//        sleep_on_address(value)
+//    if (*(uint64_t*)addr == expected_value) {
+//        sleep_on_address(addr)
 //    }
-void FutexWait(int *value, int expected_value) {
-    syscall(SYS_futex, value, FUTEX_WAIT_PRIVATE, expected_value, nullptr, nullptr, 0);
-}
+void FutexWait(void *addr, uint64_t expected_value);
 
-// Wakeup 'count' threads sleeping on address of value(-1 wakes all)
-void FutexWake(int *value, int count) {
-    syscall(SYS_futex, value, FUTEX_WAKE_PRIVATE, count, nullptr, nullptr, 0);
-}
+// Wakeup 1 thread sleeping on the given address
+void FutexWakeOne(void *addr);
+
+// Wakeup all threads sleeping on the given address
+void FutexWakeAll(void *addr);
 
 class Mutex {
 public:
