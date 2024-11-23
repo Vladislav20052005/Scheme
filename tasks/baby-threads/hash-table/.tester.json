@@ -26,7 +26,17 @@
         "shared_timed_mutex"
     ],
     "forbidden_regexp": [
-        "shared_mutex",
-        "shared_timed_mutex"
+        "std\\s*::\\s*shared_mutex",
+        "std\\s*::\\s*shared_timed_mutex",
+        "std\\s*::\\s*map",
+        "std\\s*::\\s*set",
+        "std\\s*::\\s*multimap",
+        "std\\s*::\\s*multiset",
+        "std\\s*::\\s*unordered_map",
+        "std\\s*::\\s*unordered_set",
+        "std\\s*::\\s*unordered_multimap",
+        "std\\s*::\\s*unordered_multiset",
+        "std\\s*::\\s*shared_mutex",
+        "std\\s*::\\s*shared_timed_mutex"
     ]
 }
