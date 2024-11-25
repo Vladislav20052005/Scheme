@@ -26,8 +26,8 @@ void RunTest(int threads_count, int concurrency_level) {
                 --value;
                 expected_value.fetch_sub(1);
             });
-            semaphore.Leave();
             expected_value.fetch_add(1);
+            semaphore.Leave();
         });
         std::this_thread::sleep_for(std::chrono::duration<int, std::milli>(200));
     }
