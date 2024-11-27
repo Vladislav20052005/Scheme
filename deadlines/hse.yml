@@ -190,6 +190,41 @@ assignments:
     - task: condvars/unbuffered-channel
       score: 100
 
+- title:    11-jpeg-decoder
+  start:    27-11-2024 12:00
+  deadline: 30-12-2024 23:59
+  group:    large
+  tasks:
+    - task: jpeg-decoder/huffman
+      score: 200
+    - task: jpeg-decoder/fftw
+      score: 150
+    - task: jpeg-decoder/baseline
+      score: 250
+    - task: jpeg-decoder/faster
+      score: 150
+    - task: jpeg-decoder/fuzzing
+      score: 250
+    - task: jpeg-decoder/progressive
+      score: 250
+
+- title:    12-lock-free
+  start:    27-11-2024 12:00
+  deadline: 11-12-2024 23:59
+  tasks:
+    - task: lock-free/futex
+      score: 100
+    - task: lock-free/rw-spinlock
+      score: 100
+    - task: lock-free/mpsc-stack
+      score: 100
+    - task: lock-free/fast-queue
+      score: 100
+    - task: lock-free/hazard-ptr
+      score: 100
+    - task: lock-free/sync-map
+      score: 100
+
 - title:    bonus
   start:    03-09-2024 18:00
   deadline: 30-12-2024 23:59
