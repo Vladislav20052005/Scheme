@@ -4,4 +4,9 @@ add_library(decoder_baseline
 
         huffman.cpp
         fft.cpp
-        decoder.cpp)
+        decoder.cpp
+        reader.cpp
+        bit_reader.cpp
+        fields.cpp
+        transforms.cpp
+)

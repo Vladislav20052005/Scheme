@@ -9,8 +9,15 @@
 class OneTimeCallback {
 public:
     virtual ~OneTimeCallback() = default;
-    virtual std::string operator()() = 0;
+    virtual std::string operator()() const&& = 0;
 };
 
 // Implement ctor, operator(), maybe something else...
-class AwesomeCallback : public OneTimeCallback {};
+class AwesomeCallback : public OneTimeCallback {
+public:
+    AwesomeCallback(std::string&& str);
+    std::string operator()() const&& override;
+
+private:
+    std::string str_;
+};

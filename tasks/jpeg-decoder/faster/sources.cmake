@@ -4,4 +4,10 @@ add_library(decoder_faster
 
         huffman.cpp
         fft.cpp
-        decoder.cpp)
+        decoder.cpp
+        bit_reader.cpp
+        reader.cpp
+        fields.cpp
+        transforms.cpp
+        
+        )

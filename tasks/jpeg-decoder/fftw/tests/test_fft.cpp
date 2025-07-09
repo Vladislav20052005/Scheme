@@ -13,7 +13,7 @@ TEST_CASE("Dimensions check") {
     REQUIRE_THROWS_AS(DctCalculator(4, &input, &output), std::invalid_argument);
 }
 
-/*
+
 TEST_CASE("IDCT Sanity check") {
     std::vector<double> input;
     input.resize(4);
@@ -32,7 +32,7 @@ TEST_CASE("IDCT Sanity check") {
         REQUIRE(output[i] == Approx(canon[i]));
     }
 }
-*/
+
 
 TEST_CASE("IDCT Check") {
     std::vector<double> input;

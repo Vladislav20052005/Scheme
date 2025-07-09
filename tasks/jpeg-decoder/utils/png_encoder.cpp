@@ -4,6 +4,7 @@
 
 #include <string>
 #include <stdexcept>
+#include <iostream>
 
 void WritePng(const std::string& filename, const Image& image) {
     FILE* fp = fopen(filename.c_str(), "wb");

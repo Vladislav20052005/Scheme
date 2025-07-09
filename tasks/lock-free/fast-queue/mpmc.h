@@ -1,36 +1,50 @@
 #pragma once
 
-#include <mutex>
-#include <queue>
+#include <atomic>
+#include <vector>
 
 template <class T>
 class MPMCBoundedQueue {
 public:
-    explicit MPMCBoundedQueue(int size) {
+    explicit MPMCBoundedQueue(int size) : data_(size), gen_(size) {
         max_size_ = size;
+        for (int i = 0; i < size; i++) {
+            gen_[i] = i;
+        }
     }
 
     bool Enqueue(const T& value) {
-        std::lock_guard<std::mutex> lock(mutex_);
-        if (queue_.size() == max_size_) {
+        int expected = tail_;
+        if (gen_[tail_] == tail_) {
+            while (gen_[tail_].compare_exchange_weak(expected, gen_[tail_] + 1)) {
+                expected = tail_;
+            }
+        } else {
             return false;
         }
-        queue_.push(value);
+        data_[expected] = value;
+        tail_++;
         return true;
     }
 
     bool Dequeue(T& data) {
-        std::lock_guard<std::mutex> lock(mutex_);
-        if (queue_.empty()) {
+        int expected = head_ + 1;
+        if (gen_[head_] == head_ + 1) {
+            while (gen_[head_].compare_exchange_weak(expected, head_ + max_size_)) {
+                expected = head_ + 1;
+            }
+        } else {
             return false;
         }
-        data = std::move(queue_.front());
-        queue_.pop();
+        data = data_[head_];
+        head_++;
         return true;
     }
 
 private:
-    std::queue<T> queue_;
-    std::mutex mutex_;
+    std::vector<T> data_;
+    std::vector<std::atomic<int>> gen_;
+    size_t head_ = 0;
+    size_t tail_ = 0;
     int max_size_ = 0;
 };

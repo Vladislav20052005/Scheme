@@ -4,76 +4,98 @@ struct Node {
     uint8_t value_;
     std::unique_ptr<Node> left_;
     std::unique_ptr<Node> right_;
-    bool IsLeaf() {
-        return left_ == nullptr && right_ == nullptr;
+    bool is_leaf_ = false;
+    bool IsTerminal() {
+        return is_leaf_;
     }
 };
 
 class HuffmanTree::Impl {
 public:
-    Impl() {
-        tree = std::make_unique<Node>();
-        move_ptr_ = tree.get();
+    Impl() : tree_(), move_ptr_() {
     }
-    void Build(const std::vector<uint8_t> &code_lengths) {
-        std::vector<Node*> current_layer;
-        current_layer.reserve(256);
-        current_layer.push_back(tree.get());
-        for (auto& leaves_cnt : code_lengths) {
-            for (auto& parent_node : current_layer) {
-                parent_node->left_ = std::make_unique<Node>();
-                parent_node->right_ = std::make_unique<Node>();
+
+    void Build(const std::vector<uint8_t> &code_lengths, const std::vector<uint8_t> &values) {
+        if (code_lengths.size() > 16) {
+            throw std::invalid_argument("code lengths size is more than 16");
+        }
+        size_t sum = 0;
+        for (auto &cl : code_lengths) {
+            sum += cl;
+        }
+        if (sum != values.size()) {
+            throw std::invalid_argument("incorrect values cnt");
+        }
+        tree_ = std::make_unique<Node>();
+        move_ptr_ = tree_.get();
+        std::vector<uint8_t> set(code_lengths.size());
+        set.resize(code_lengths.size());
+        for (const uint8_t &value : values) {
+            if (!Try(tree_.get(), value, code_lengths, set, -1)) {
+                throw std::invalid_argument("123");
             }
-            std::vector<Node*> new_layer;
-            new_layer.reserve(256);
-            if (leaves_cnt % 2 == 1) {
-                new_layer.push_back(current_layer[leaves_cnt / 2 - 1]->right_.get());
+        }
+        for (size_t i = 0; i < code_lengths.size(); i++) {
+            if (set[i] != code_lengths[i]) {
+                throw std::invalid_argument("no");
             }
-            for (size_t index = leaves_cnt / 2; index < current_layer.size(); ++index) {
-                new_layer.push_back(current_layer[index]->left_.get());
-                new_layer.push_back(current_layer[index]->right_.get());
-            }
-            current_layer = std::move(new_layer);
         }
     }
 
-    void Fill(Node* node, const std::vector<uint8_t> &values, size_t& index) {
-        if (node->IsLeaf()) {
-            node->value_ = values[index];
-            ++index;
-        } else {
-            Fill(node->left_.get(), values, index);
-            Fill(node->right_.get(), values, index);
+    bool Try(Node *curr, uint8_t value, const std::vector<uint8_t> &cl, std::vector<uint8_t> &set,
+             int depth) {
+        if (curr->IsTerminal()) {
+            return false;
         }
-    }
+        if (depth >= 0 && cl[depth] != set[depth]) {
+            curr->value_ = value;
+            set[depth]++;
+            curr->is_leaf_ = true;
+            return true;
+        }
+        if (!curr->left_) {
+            curr->left_ = std::make_unique<Node>();
+        }
+        if (Try(curr->left_.get(), value, cl, set, depth + 1)) {
+            return true;
+        }
+        if (!curr->right_) {
+            curr->right_ = std::make_unique<Node>();
+        }
+        if (Try(curr->right_.get(), value, cl, set, depth + 1)) {
+            return true;
+        }
 
-    void Fill(const std::vector<uint8_t> &values, size_t& index) {
-        Fill(tree.get(), values, index);
+        return false;
     }
 
     bool Move(bool bit, int &value) {
-        Node* save = move_ptr_;
+        if (move_ptr_ == nullptr) {
+            throw std::invalid_argument("");
+        }
         move_ptr_ = bit ? move_ptr_->right_.get() : move_ptr_->left_.get();
-        if (move_ptr_->IsLeaf()) {
+        if (move_ptr_ == nullptr) {
+            throw std::invalid_argument("");
+        }
+        if (move_ptr_->IsTerminal()) {
             value = move_ptr_->value_;
-            move_ptr_ = save;
+            move_ptr_ = tree_.get();
             return true;
         }
         return false;
     }
 
 private:
-    std::unique_ptr<Node> tree;
-    Node* move_ptr_;
+    std::unique_ptr<Node> tree_;
+    Node *move_ptr_;
 };
 
-HuffmanTree::HuffmanTree() = default;
+HuffmanTree::HuffmanTree() : impl_(std::make_unique<Impl>()) {
+}
 
 void HuffmanTree::Build(const std::vector<uint8_t> &code_lengths,
                         const std::vector<uint8_t> &values) {
-    impl_->Build(code_lengths);
-    size_t index = 0;
-    impl_->Fill(values, index);
+    impl_->Build(code_lengths, values);
 }
 
 bool HuffmanTree::Move(bool bit, int &value) {

@@ -159,3 +159,10 @@ TEST_CASE("Huffman sufferrings") {
     REQUIRE(tree.Move(0, x));
     REQUIRE(x == 67);
 }
+
+TEST_CASE("Huffman sufferrings2") {
+    std::vector<uint8_t> code_lengths{0, 2, 3, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0};
+    std::vector<uint8_t> values(11, 0);
+    HuffmanTree tree;
+    tree.Build(code_lengths, values);
+}

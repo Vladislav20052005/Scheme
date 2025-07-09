@@ -19,13 +19,19 @@ void FutexWakeAll(void *addr);
 class Mutex {
 public:
     void Lock() {
-        mutex_.lock();
+        std::atomic<int> c;
+        if ((c.compare_exchange_weak(ongoing_, 0, 1)) != 0) {
+            if (c != 2) {
+                c.exchange(ongoing_, 2);
+            }
+        }
     }
 
     void Unlock() {
-        mutex_.unlock();
+        ongoing_ = 0;
+        FutexWakeOne(&ongoing_);
     }
 
 private:
-    std::mutex mutex_;
+    std::atomic<int> ongoing_ = 0;
 };

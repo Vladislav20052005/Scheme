@@ -2,6 +2,7 @@
 
 #include <catch.hpp>
 #include <decoder.h>
+#include <glog/logging.h>
 
 #include "image.h"
 #include "png_encoder.hpp"

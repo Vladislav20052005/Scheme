@@ -8,30 +8,55 @@
 template <class T>
 class MPSCStack {
 public:
-    // Push adds one element to stack top.
-    //
-    // Safe to call from multiple threads.
     void Push(const T& value) {
-        (void)value;
-        throw std::runtime_error{"Unimplemented"};
+        Node* expected = nullptr;
+        Node* new_head = new Node(value, nullptr);
+        while (!head_.compare_exchange_weak(expected, new_head)) {
+            new_head->next_ = expected;
+        }
     }
 
-    // Pop removes top element from the stack.
-    //
-    // Not safe to call concurrently.
     std::optional<T> Pop() {
-        throw std::runtime_error{"Unimplemented"};
+        Node* expected = head_.load();
+        while (expected != nullptr && !head_.compare_exchange_weak(expected, expected->next_)) {
+        }
+        if (expected == nullptr) {
+            return std::nullopt;
+        }
+
+        T value = expected->value_;
+        expected->next_ = nullptr;
+        delete expected;
+        return value;
     }
 
-    // DequeuedAll Pop's all elements from the stack and calls cb() for each.
-    //
-    // Not safe to call concurrently with Pop()
     template <class TFn>
     void DequeueAll(const TFn& cb) {
-        (void)cb;
-        throw std::runtime_error{"Unimplemented"};
+        while (head_ != nullptr) {
+            std::optional<T> value = Pop();
+            if (value != std::nullopt) {
+                cb(value.value());
+            }
+        }
     }
 
     ~MPSCStack() {
+        if (head_ != nullptr) {
+            delete head_;
+        }
     }
+
+private:
+    struct Node {
+        Node(T value, Node* next) : value_(value), next_(next) {
+        }
+        ~Node() {
+            if (next_ != nullptr) {
+                delete next_;
+            }
+        }
+        T value_;
+        Node* next_ = nullptr;
+    };
+    std::atomic<Node*> head_;
 };
