@@ -48,6 +48,8 @@ TEST_CASE("Negative numbers") {
     tokenizer.Next();
     REQUIRE(!tokenizer.IsEnd());
     REQUIRE(tokenizer.GetToken() == Token{ConstantToken{2}});
+    REQUIRE(tokenizer.IsEnd());
+
 }
 
 TEST_CASE("Symbol names") {

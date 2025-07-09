@@ -8,6 +8,7 @@
 #include <stdexcept>
 #include <chrono>
 #include <algorithm>
+#include <iostream>
 
 std::vector<int> Unpack(const std::vector<std::vector<int>>& values) {
     std::vector<int> all;
@@ -72,6 +73,7 @@ void RunTest(int senders_count, int receivers_count, int buff_size, int close_li
     for (auto& cur : threads) {
         cur.join();
     }
+    
 
     CheckValues(send_values, recv_values);
     if (senders_count == 1 && receivers_count == 1) {

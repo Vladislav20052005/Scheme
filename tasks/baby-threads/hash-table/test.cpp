@@ -61,7 +61,6 @@ TEST(Correctness, Operations) {
     table.Insert(7, 3);
     ASSERT_EQ(std::make_pair(true, 3), table.Find(7));
 }
-
 TEST(Correctness, Constness) {
     ConcurrentHashMap<int, int> table;
     table.Insert(1, 1);

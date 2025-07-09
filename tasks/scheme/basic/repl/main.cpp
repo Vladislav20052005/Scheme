@@ -1,10 +1,12 @@
 #include <iostream>
+#include "scheme.h"
 
 #include <error.h>
 #include <scheme.h>
 
 int main() {
     Interpreter interpreter;
+<<<<<<< Updated upstream
     std::string query;
 
     while (true) {
@@ -28,4 +30,8 @@ int main() {
             std::cerr << "Caught unknown exception" << std::endl;
         }
     }
+=======
+    std::cout << interpreter.Run("(not 1 2)") << "\n";
+    return 0;
+>>>>>>> Stashed changes
 }

@@ -38,6 +38,7 @@ TEST_CASE("Negative numbers") {
     std::stringstream ss{"-2 - 2"};
     Tokenizer tokenizer{&ss};
 
+
     REQUIRE(!tokenizer.IsEnd());
     REQUIRE(tokenizer.GetToken() == Token{ConstantToken{-2}});
 

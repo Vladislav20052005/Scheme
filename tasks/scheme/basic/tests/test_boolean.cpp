@@ -10,6 +10,7 @@ TEST_CASE_METHOD(SchemeTest, "BooleanPredicate") {
     ExpectEq("(boolean? #f)", "#t");
     ExpectEq("(boolean? 1)", "#f");
     ExpectEq("(boolean? '())", "#f");
+
 }
 
 TEST_CASE_METHOD(SchemeTest, "NotFunction") {

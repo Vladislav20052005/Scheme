@@ -1,4 +1,5 @@
 #include <iostream>
+<<<<<<< Updated upstream
 
 #include <error.h>
 #include <scheme.h>
@@ -28,4 +29,16 @@ int main() {
             std::cerr << "Caught unknown exception" << std::endl;
         }
     }
+=======
+#include "scheme.h"
+int main() {
+    Interpreter interpreter;
+    while (true) {
+        std::string str = "";
+        std::getline(std::cin, str);
+
+        std::cout << interpreter.Run(str) << std::endl;
+    }
+    return 0;
+>>>>>>> Stashed changes
 }

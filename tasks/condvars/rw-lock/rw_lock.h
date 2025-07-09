@@ -1,5 +1,6 @@
 #pragma once
 #include <mutex>
+#include <condition_variable>
 
 class RWLock {
 public:
@@ -7,9 +8,6 @@ public:
     void Read(Func func) {
         read_.lock();
         ++blocked_readers_;
-        if (blocked_readers_ == 1) {
-            global_.lock();
-        }
         read_.unlock();
         try {
             func();
@@ -22,20 +20,25 @@ public:
 
     template <class Func>
     void Write(Func func) {
-        std::lock_guard<std::mutex> lock(global_);
+        std::unique_lock<std::mutex> lock(read_);
+        while (blocked_readers_) {
+            cv_.wait(lock);
+        }
         func();
+        cv_.notify_one();
     }
 
 private:
     std::mutex read_;
     std::mutex global_;
+    std::condition_variable cv_;
     int blocked_readers_ = 0;
 
     void EndRead() {
         read_.lock();
         --blocked_readers_;
         if (!blocked_readers_) {
-            global_.unlock();
+            cv_.notify_one();
         }
         read_.unlock();
     }

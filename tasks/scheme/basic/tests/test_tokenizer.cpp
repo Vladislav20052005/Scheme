@@ -5,6 +5,38 @@
 
 #include <sstream>
 
+TEST_CASE("Custom") {
+    std::stringstream ss{"(boolean? '())"};
+    Tokenizer tokenizer{&ss};
+    REQUIRE(!tokenizer.IsEnd());
+
+    REQUIRE(tokenizer.GetToken() == Token{BracketToken::OPEN});
+
+    tokenizer.Next();
+    REQUIRE(!tokenizer.IsEnd());
+    REQUIRE(tokenizer.GetToken() == Token{SymbolToken{"boolean?"}});
+
+    tokenizer.Next();
+    REQUIRE(!tokenizer.IsEnd());
+    REQUIRE(tokenizer.GetToken() == Token{QuoteToken{}});
+
+    tokenizer.Next();
+    REQUIRE(!tokenizer.IsEnd());
+    REQUIRE(tokenizer.GetToken() == Token{BracketToken::OPEN});
+
+    tokenizer.Next();
+    REQUIRE(!tokenizer.IsEnd());
+    REQUIRE(tokenizer.GetToken() == Token{BracketToken::CLOSE});
+
+    tokenizer.Next();
+    REQUIRE(!tokenizer.IsEnd());
+    REQUIRE(tokenizer.GetToken() == Token{BracketToken::CLOSE});
+
+    tokenizer.Next();
+    REQUIRE(tokenizer.IsEnd());
+
+}
+
 TEST_CASE("Tokenizer works on simple case") {
     std::stringstream ss{"4+)'."};
     Tokenizer tokenizer{&ss};

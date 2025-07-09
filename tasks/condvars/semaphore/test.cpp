@@ -46,7 +46,7 @@ void RunTest(int threads_count, int concurrency_level) {
 TEST(Order, NewTest) {
     int callback_invocations_count = 0;
 
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 20; ++i) {
         Semaphore semaphore(1);
         int time = 0;
         std::vector<std::thread> threads;
@@ -95,9 +95,12 @@ TEST(Order, NewTest) {
         for (auto& cur : threads) {
             cur.join();
         }
+        if (!callback_invocations_count) {
+            std::cout << i << "\n";
+        }
     }
-
-    ASSERT_EQ(callback_invocations_count, 30);
+    
+    ASSERT_EQ(callback_invocations_count, 60);
 }
 
 TEST(Order, Mutex) {

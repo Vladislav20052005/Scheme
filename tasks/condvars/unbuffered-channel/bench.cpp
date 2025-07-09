@@ -42,11 +42,9 @@ int64_t CalcSum(int senders_count, int readers_count) {
             }
         });
     }
-
     for (auto& cur : threads) {
         cur.join();
     }
-
     sender_thread.join();
 
     return sum;

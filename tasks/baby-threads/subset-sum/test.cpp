@@ -25,7 +25,7 @@ void CheckSubsets(const std::vector<int64_t>& data, const std::vector<size_t>& f
         second_sum += data[cur];
         ASSERT_FALSE(used_indices.count(cur));
     }
-
+    
     ASSERT_EQ(first_sum, second_sum);
 }
 
